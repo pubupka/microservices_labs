@@ -1,8 +1,8 @@
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from src.models.user import User
-from auth import hash_password, verify_password
-from auth import create_token
+from src.auth import hash_password, verify_password
+from src.auth import create_token
 
 def create_user(data, db: Session):
     if db.query(User).filter(User.email == data.email).first():
